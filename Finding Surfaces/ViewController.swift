@@ -5,8 +5,6 @@
 //  Created by MacBook Pro on 15.02.2021.
 //
 
-import UIKit
-import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
@@ -15,6 +13,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set the debug options
+        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -34,6 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -48,27 +50,39 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let planeAnchor = anchor as? ARPlaneAnchor, planeAnchor.alignment == .horizontal {
+            // Set size
+            let extent = planeAnchor.extent
+            let width = CGFloat(extent.x)
+            let height = CGFloat(extent.z)
+            
+            //Create geometry
+            let plane = SCNPlane(width: width, height: height)
+            plane.firstMaterial?.diffuse.contents = UIColor.green
+            
+            //Create node
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.eulerAngles.x = -.pi/2
+            planeNode.opacity = 0.5
+            
+            //Add node to the detected plane
+            node.addChildNode(planeNode)
+            print(#line, #function, "size:", planeAnchor.extent)
+        }
     }
-*/
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let planeAncher = anchor as? ARPlaneAnchor, planeAncher.alignment == .horizontal {
+            guard let planeNode = node.childNodes.first, let plane = planeNode.geometry as? SCNPlane  else {
+                return
+            }
+            plane.width = CGFloat(planeAncher.extent.x)
+            plane.height = CGFloat(planeAncher.extent.z)
+            
+            planeNode.simdPosition = planeAncher.center
+        }
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
+
 }
