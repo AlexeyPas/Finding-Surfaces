@@ -8,11 +8,26 @@
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
+    // MARK: - Outlet
     @IBOutlet var sceneView: ARSCNView!
     
+    //MARK: - Metods
+    
+    /// Add ship model (discription cmd+opt+/)
+    /// - Returns: SCNNode associated with the model
+    func loadShip() -> SCNNode {
+        // Create a new scene
+        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        
+        let shipNode = scene.rootNode.clone()
+        
+        return shipNode
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Enable default lighting
+        sceneView.autoenablesDefaultLighting = true
         
         // Set the debug options
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
@@ -22,12 +37,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,21 +77,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             //Add node to the detected plane
             node.addChildNode(planeNode)
+            node.addChildNode(loadShip())
             print(#line, #function, "size:", planeAnchor.extent)
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        if let planeAncher = anchor as? ARPlaneAnchor, planeAncher.alignment == .horizontal {
-            guard let planeNode = node.childNodes.first, let plane = planeNode.geometry as? SCNPlane  else {
-                return
-            }
-            plane.width = CGFloat(planeAncher.extent.x)
-            plane.height = CGFloat(planeAncher.extent.z)
+        if let planeAncher = anchor as? ARPlaneAnchor, planeAncher.alignment == .horizontal{
             
-            planeNode.simdPosition = planeAncher.center
+            for childeNode in node.childNodes {
+                childeNode.simdPosition = planeAncher.center
+                
+                if let plane = childeNode.geometry as? SCNPlane {
+                    plane.width = CGFloat(planeAncher.extent.x)
+                    plane.height = CGFloat(planeAncher.extent.z)
+                }
+            }
         }
     }
-    
-
 }
