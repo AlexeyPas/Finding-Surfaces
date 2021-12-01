@@ -4,8 +4,8 @@
 
 ## Screenshot 1
 
-![](https://github.com/AlexeyPas/Finding-Surfaces/blob/main/Finding%20Surfaces/Screenshots/Sreenshot%201.jpeg)
+![](https://github.com/AlexeyPas/Finding-Surfaces/blob/main/Finding%20Surfaces/Screenshots/Sreenshot%201.PNG)
 
 ## Screenshot 2
 
-![](https://github.com/AlexeyPas/Finding-Surfaces/blob/main/Finding%20Surfaces/Screenshots/Sreenshot%202.jpeg)
+![](https://github.com/AlexeyPas/Finding-Surfaces/blob/main/Finding%20Surfaces/Screenshots/Sreenshot%202.PNG)
