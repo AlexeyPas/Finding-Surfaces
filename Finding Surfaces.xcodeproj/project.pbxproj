@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528CF9EF2757E2F1003C6E41 /* Sreenshot 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 528CF9ED2757E2F0003C6E41 /* Sreenshot 2.PNG */; };
+		528CF9F02757E2F1003C6E41 /* Sreenshot 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 528CF9EE2757E2F1003C6E41 /* Sreenshot 1.PNG */; };
 		52C0DF4E25DA6CD000329510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0DF4D25DA6CD000329510 /* AppDelegate.swift */; };
 		52C0DF5025DA6CD000329510 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C0DF4F25DA6CD000329510 /* art.scnassets */; };
 		52C0DF5225DA6CD000329510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0DF5125DA6CD000329510 /* ViewController.swift */; };
 		52C0DF5525DA6CD000329510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C0DF5325DA6CD000329510 /* Main.storyboard */; };
 		52C0DF5725DA6CD400329510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C0DF5625DA6CD400329510 /* Assets.xcassets */; };
 		52C0DF5A25DA6CD400329510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C0DF5825DA6CD400329510 /* LaunchScreen.storyboard */; };
-		52C0DF6825DA8AC200329510 /* Sreenshot 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52C0DF6725DA8AC200329510 /* Sreenshot 1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		528CF9ED2757E2F0003C6E41 /* Sreenshot 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sreenshot 2.PNG"; sourceTree = "<group>"; };
+		528CF9EE2757E2F1003C6E41 /* Sreenshot 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sreenshot 1.PNG"; sourceTree = "<group>"; };
 		52C0DF4A25DA6CD000329510 /* Finding Surfaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finding Surfaces.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C0DF4D25DA6CD000329510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C0DF4F25DA6CD000329510 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -25,7 +28,6 @@
 		52C0DF5625DA6CD400329510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52C0DF5925DA6CD400329510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52C0DF5B25DA6CD400329510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52C0DF6725DA8AC200329510 /* Sreenshot 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sreenshot 1.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,8 @@
 		52C0DF6225DA895500329510 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				52C0DF6725DA8AC200329510 /* Sreenshot 1.jpeg */,
+				528CF9ED2757E2F0003C6E41 /* Sreenshot 2.PNG */,
+				528CF9EE2757E2F1003C6E41 /* Sreenshot 1.PNG */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -135,11 +138,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C0DF6825DA8AC200329510 /* Sreenshot 1.jpeg in Resources */,
+				528CF9EF2757E2F1003C6E41 /* Sreenshot 2.PNG in Resources */,
 				52C0DF5025DA6CD000329510 /* art.scnassets in Resources */,
 				52C0DF5A25DA6CD400329510 /* LaunchScreen.storyboard in Resources */,
 				52C0DF5725DA6CD400329510 /* Assets.xcassets in Resources */,
 				52C0DF5525DA6CD000329510 /* Main.storyboard in Resources */,
+				528CF9F02757E2F1003C6E41 /* Sreenshot 1.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
